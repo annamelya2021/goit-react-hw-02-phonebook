@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Label, Input } from './Filter.styled';
 
 class Filter extends Component {
   handleInputChange = e => {
@@ -8,10 +9,10 @@ class Filter extends Component {
   render() {
     return (
       <form>
-        <label>
+        <Label>
           Find contacts by name
-          <input type="text" onChange={this.handleInputChange} />
-        </label>
+          <Input type="text" onChange={this.handleInputChange} />
+        </Label>
       </form>
     );
   }

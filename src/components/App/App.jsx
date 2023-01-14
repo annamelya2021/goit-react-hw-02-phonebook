@@ -3,6 +3,7 @@ import ContactsList from 'components/Contacts';
 import Filter from 'components/Filter';
 import { Component } from 'react';
 import { Notify } from 'notiflix';
+import { Container } from './App.styled';
 
 class App extends Component {
   state = {
@@ -54,13 +55,13 @@ class App extends Component {
   render() {
     const data = this.filterByName();
     return (
-      <div>
+      <Container>
         <h1>Phonebook</h1>
         <ContactForm submit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter filter={this.filterNamesAdd} />
         <ContactsList data={data} onDeleteContacts={this.onDeleteContacts} />
-      </div>
+      </Container>
     );
   }
 }

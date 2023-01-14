@@ -1,19 +1,21 @@
+import { List, Item, Button } from './ContactList.styled';
+
 const ContactsList = ({ data, onDeleteContacts }) => {
   return (
-    <ul>
+    <List>
       {data.map(message => {
         const { name, id, number } = message;
 
         return (
-          <li key={id}>
+          <Item key={id}>
             <span>{name}</span>: <span>{number}</span>
-            <button key={id} onClick={() => onDeleteContacts(id)}>
+            <Button key={id} onClick={() => onDeleteContacts(id)}>
               Delete
-            </button>
-          </li>
+            </Button>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 };
 
