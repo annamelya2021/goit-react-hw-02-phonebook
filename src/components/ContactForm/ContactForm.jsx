@@ -16,13 +16,9 @@ class ContactForm extends Component {
 
   onHandleSubmit = e => {
     e.preventDefault();
-    console.log('this.state :>> ', this.state);
     this.props.submit(this.state);
     this.reset();
   };
-
-  nameImputId = shortid.generate();
-  numberImportId = shortid.generate();
 
   reset = () => {
     this.setState({ id: '', name: '', number: '' });
@@ -31,7 +27,7 @@ class ContactForm extends Component {
   render() {
     return (
       <Form onSubmit={this.onHandleSubmit}>
-        <Label htmlFor={this.nameImputId}>
+        <Label>
           Name:
           <Input
             type="text"
@@ -39,12 +35,11 @@ class ContactForm extends Component {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            id={this.nameImputId}
             value={this.state.name}
             onChange={this.onHandleImputChange}
           />
         </Label>
-        <Label htmlFor={this.numberImportId}>
+        <Label>
           Number:
           <Input
             type="tel"
@@ -53,7 +48,6 @@ class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             value={this.state.number}
-            id={this.numberImportId}
             onChange={this.onHandleImputChange}
           />
         </Label>

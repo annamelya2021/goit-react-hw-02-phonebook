@@ -4,18 +4,12 @@ import PropTypes from 'prop-types';
 const ContactsList = ({ data, onDeleteContacts }) => {
   return (
     <List>
-      {data.map(message => {
-        const { name, id, number } = message;
-
-        return (
-          <Item key={id}>
-            <span>{name}</span>: <span>{number}</span>
-            <Button key={id} onClick={() => onDeleteContacts(id)}>
-              Delete
-            </Button>
-          </Item>
-        );
-      })}
+      {data.map(({ name, id, number }) => (
+        <Item key={id}>
+          <span>{name}</span>: <span>{number}</span>
+          <Button onClick={() => onDeleteContacts(id)}>Delete</Button>
+        </Item>
+      ))}
     </List>
   );
 };
